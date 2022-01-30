@@ -3,11 +3,15 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const express = require("express");
 const app = express();
+const upload = require("express-fileupload");
 
-const csvRoute = require("./routers/csv.js");
+// Routes
+const csvRoute = require("./routers/csv");
+
 // Middleware
 app.use(bodyParser.json());
 app.use(cors());
+app.use(upload());
 
 // Routes
 app.use("/api/v1/csv-parse", csvRoute);

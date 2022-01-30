@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-router.post("/upload", (req, res) => {
-  res.send("Hello World");
-});
+// controller
+const { csvHandel } = require("../controllers/csv");
+
+router.post("/upload", csvHandel);
 
 module.exports = router;
